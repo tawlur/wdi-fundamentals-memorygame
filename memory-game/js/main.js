@@ -36,13 +36,41 @@ var checkForMatch = function() {
 
 var flipCard = function () {
 
-	
+	cardID = this.getAttribute('data-id');
+	console.log(cardID);
+
 	cardsInPlay.push(cards[cardID].rank);
 
+	this.setAttribute('src', cards[cardID].cardImage);
+
 	console.log(cards[cardID].suit);
+
 	console.log(cards[cardId].cardImage);
+
+	if (cardsInPlay.length === 2) {
+		checkForMatch();
+
+		cardsInPlay =[];
+	}
 }
 	
+car createBoard = function() {
+
+	for (var i = 0; i < cards.length; i++) {
+
+		cardElement.setAttribute('src', "images/back.png");
+		cardElement.setAttribute('data-id', i);
+
+		// adding an event listener 
+
+		cardElement.addEventListener('click', flipCard);
+
+		// now card needs to go on the board
+
+		docuemnt.getElementById('game-board').appendChild(cardElement);
+
+	}
+}
 
 
 //creat a function that will store all stpes related to seletin or flipping ove a macrd
